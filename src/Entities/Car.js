@@ -5,7 +5,7 @@ import { Mesh } from "three";
 
 const Car = () => {
 
-    const gltf = useGLTF("/models/car/scene.gltf");
+    const gltf = useGLTF(process.env.PUBLIC_URL + "/models/car/scene.gltf");
 
     useEffect(() => {
         gltf.scene.scale.set(0.005, 0.005, 0.005);

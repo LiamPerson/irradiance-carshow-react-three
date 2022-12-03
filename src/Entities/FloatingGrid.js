@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { RepeatWrapping, TextureLoader } from "three";
 
 const FloatingGrid = () => {
-    const diffuse = useLoader(TextureLoader, "/textures/grid-texture.png"); // useTexture does not work here. IDK why
+    const diffuse = useLoader(TextureLoader, process.env.PUBLIC_URL + "/textures/grid-texture.png"); // useTexture does not work here. IDK why
     useEffect(() => {
         diffuse.wrapS = RepeatWrapping; // Wrap S axis
         diffuse.wrapT = RepeatWrapping; // Wrap T axis
