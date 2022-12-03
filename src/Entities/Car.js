@@ -1,4 +1,5 @@
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import React, { useEffect } from "react";
 import { Mesh } from "three";
 
@@ -17,6 +18,17 @@ const Car = () => {
             }
         })
     }, [gltf]);
+
+    useFrame((state, frame) => {
+        let t = state.clock.getElapsedTime();
+        // Grab tires group
+        let group = gltf.scene.children[0].children[0].children[0];
+        // Animate tires over time
+        group.children[0].rotation.x = t * 2;
+        group.children[2].rotation.x = t * 2;
+        group.children[4].rotation.x = t * 2;
+        group.children[6].rotation.x = t * 2;
+    })
 
     return (
         <primitive object={gltf.scene} />
