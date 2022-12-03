@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/irradiance-carshow-react-three/static/css/main.15fc088f.css",
+    "main.js": "/irradiance-carshow-react-three/static/js/main.07bb04a4.js",
+    "static/js/787.21a593f4.chunk.js": "/irradiance-carshow-react-three/static/js/787.21a593f4.chunk.js",
+    "index.html": "/irradiance-carshow-react-three/index.html",
+    "main.15fc088f.css.map": "/irradiance-carshow-react-three/static/css/main.15fc088f.css.map",
+    "main.07bb04a4.js.map": "/irradiance-carshow-react-three/static/js/main.07bb04a4.js.map",
+    "787.21a593f4.chunk.js.map": "/irradiance-carshow-react-three/static/js/787.21a593f4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.15fc088f.css",
+    "static/js/main.07bb04a4.js"
+  ]
+}
