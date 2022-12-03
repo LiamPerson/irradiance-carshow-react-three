@@ -6,6 +6,7 @@ import Rings from "../Entities/Rings";
 import Boxes from "../Entities/Boxes";
 import { Bloom, ChromaticAberration, DepthOfField, EffectComposer } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
+import FloatingGrid from "../Entities/FloatingGrid";
 
 const CarShowScene = (props) => {
 
@@ -46,7 +47,8 @@ const CarShowScene = (props) => {
         <Rings />
         <Ground />
         <Boxes />
-        
+        <FloatingGrid />
+
         <EffectComposer>
             <DepthOfField
                 focusDistance={.0035}
