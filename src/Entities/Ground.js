@@ -1,11 +1,33 @@
+import React from "react";
 import { MeshReflectorMaterial } from "@react-three/drei";
+import { useLoader } from "@react-three/fiber";
+import { useEffect } from "react";
+import { LinearEncoding, RepeatWrapping, TextureLoader } from "three";
 
 const Ground = () => {
+    const [roughness, normal] = useLoader(TextureLoader, [
+        "/textures/terrain-roughness.jpg",
+        "/textures/terrain-normal.jpg",
+    ]);
+
+    useEffect(() => {
+        [normal, roughness].forEach(t => {
+            t.wrapS = RepeatWrapping;
+            t.wrapT = RepeatWrapping;
+            t.repeat.set(5,5);
+        });
+
+        normal.encoding = LinearEncoding; // Apply linear encoding for non-albedo maps
+    }, [normal, roughness])
+
     return (
         <mesh rotation-x={-Math.PI * .5} castShadow receiveShadow>
             <planeGeometry args={[30, 30]} />
             <MeshReflectorMaterial
                 envMapIntensity={0}
+                normalMap={normal}
+                normalScale={[.15, .15]}
+                roughnessMap={roughness}
                 dithering={true}
                 color={[0.015, 0.015, 0.015]}
                 roughness={0.7}
