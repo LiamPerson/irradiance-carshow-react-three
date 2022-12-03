@@ -1,5 +1,5 @@
 import { useFrame } from "@react-three/fiber";
-import React, { useMemo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Vector3 } from "three";
 
 const getInitialPosition = () => {
