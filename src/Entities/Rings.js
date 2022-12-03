@@ -6,10 +6,13 @@ const Rings = () => {
     const itemsRef = useRef([]);
 
     useFrame(state => {
+        let elapsed = state.clock.getElapsedTime();
         // Go through each ring and set the position
         for(let i = 0; i < itemsRef.current.length; i++) {
             let mesh = itemsRef.current[i];
-            let z = (i - 7) * 3.5;
+            // Move rings over time, looping back to start position at the end of their cycle infinitely
+            // clamping at (+3.5 Z) such that the next step of (+3.5 Z) is (-3.5 Z)
+            let z = (i - 7) * 3.5 + ((elapsed * .4) % 3.5) * 2; 
             mesh.position.set(0, 0, -z); // Set the position of each ring
 
             let dist = Math.abs(z);
