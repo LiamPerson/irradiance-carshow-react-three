@@ -1,6 +1,6 @@
 import React from "react";
 import { MeshReflectorMaterial } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect } from "react";
 import { LinearEncoding, RepeatWrapping, TextureLoader } from "three";
 
@@ -19,6 +19,13 @@ const Ground = () => {
 
         normal.encoding = LinearEncoding; // Apply linear encoding for non-albedo maps
     }, [normal, roughness])
+
+    useFrame((state, delta) => {
+        let t = -state.clock.getElapsedTime() * .128;
+        // Offsetting texture coordinates to give the illusion of movement
+        roughness.offset.set(0, t); 
+        normal.offset.set(0, t);
+    })
 
     return (
         <mesh rotation-x={-Math.PI * .5} castShadow receiveShadow>
